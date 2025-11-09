@@ -1,5 +1,5 @@
 <div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/leoeek/dev-utils-systray/tree/master/assets/banner.png" />
+<img width="1200" height="475" alt="GHBanner" src="assets/banner.png" />
 </div>
 
 ## Run Locally

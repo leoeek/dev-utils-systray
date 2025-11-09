@@ -7,7 +7,7 @@
   "author": "Um dev",
   "license": "MIT",
   "email": "leonardolp@gmail.com",
-  "homepage": "https://github.com/leonardolp/dev-utils-systray",
+  "homepage": "https://github.com/leoeek/dev-utils-systray",
   "scripts": {
     "start": "concurrently \"npm:dev:react\" \"npm:dev:electron\"",
     "dev:react": "vite",

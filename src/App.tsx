@@ -35,7 +35,7 @@ const App: React.FC = () => {
         <footer className="text-center mt-8 text-slate-500">
           <p>Feito com ❤️ por um dev para devs.</p>
           <a
-            href="https://github.com/your-repo"
+            href="https://github.com/leoeek/dev-utils-systray"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center space-x-2 hover:text-cyan-400 transition-colors mt-2"

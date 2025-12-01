@@ -41,6 +41,7 @@
   "build": {
     "appId": "br.com.devutils.systray",
     "productName": "DevUtils Systray",
+    "icon": "assets/icon.png",
     "files": [
       "dist-electron/**/*",
       "build/**/*",

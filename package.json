@@ -60,8 +60,9 @@
       "target": [
         "AppImage",
         "deb",
-        "snap",
-        "dir" 
+        "snap", 
+        "dir",
+        "flatpak"
       ],
       "category": "Utility"
     }

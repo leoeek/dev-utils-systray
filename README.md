@@ -2,8 +2,6 @@
 
 Uma aplicação de bandeja de sistema (systray) para desktop, construída com Electron e React, que oferece um conjunto de ferramentas e utilitários para facilitar o dia a dia de desenvolvedores.
 
-(Você pode adicionar um screenshot da aplicação aqui) !Screenshot da Aplicação
-
 ---
 
 ## ✨ Funcionalidades

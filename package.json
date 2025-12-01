@@ -2,11 +2,13 @@
   "name": "dev-utils-systray",
   "version": "1.0.0",
   "description": "Utilitários para desenvolvedores.",
-  "main": "dist/main.js",
+  "main": "dist-electron/main.js",
   "type": "module",
-  "author": "Um dev",
+  "author": {
+    "name": "Leonardo",
+    "email": "leonardolp@gmail.com"
+  },
   "license": "MIT",
-  "email": "leonardolp@gmail.com",
   "homepage": "https://github.com/leoeek/dev-utils-systray",
   "scripts": {
     "start": "concurrently \"npm:dev:react\" \"npm:dev:electron\"",
@@ -40,7 +42,7 @@
     "appId": "br.com.devutils.systray",
     "productName": "DevUtils Systray",
     "files": [
-      "dist/**/*",
+      "dist-electron/**/*",
       "build/**/*",
       "node_modules/**/*",
       "package.json"

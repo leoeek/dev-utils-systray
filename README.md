@@ -2,6 +2,8 @@
 
 Uma aplicação de bandeja de sistema (systray) para desktop, construída com Electron e React, que oferece um conjunto de ferramentas e utilitários para facilitar o dia a dia de desenvolvedores.
 
+![Logo](https://github.com/leoeek/dev-utils-systray/blob/master/assets/banner.png)
+
 ---
 
 ## ✨ Funcionalidades
@@ -91,3 +93,9 @@ npm run dist
 ## 📄 Licença
 
 Este projeto está licenciado sob a Licença MIT. Veja o arquivo LICENSE para mais detalhes.
+
+## 📄 Telas
+
+![App Screenshot](https://github.com/leoeek/dev-utils-systray/blob/master/_material/print/print_1.png)
+
+<img src="https://github.com/leoeek/dev-utils-systray/blob/master/_material/print/print_2.png" width="400" alt="" />

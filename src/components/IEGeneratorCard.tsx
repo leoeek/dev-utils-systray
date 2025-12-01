@@ -68,7 +68,7 @@ const IEGeneratorCard: React.FC = () => {
           className="h-4 w-4 rounded border-gray-300 text-cyan-600 focus:ring-cyan-500 bg-slate-600"
         />
         <label htmlFor="format-ie" className="ml-2 block text-sm text-slate-300">
-          Show formatted
+          Com formatação
         </label>
       </div>
     </div>

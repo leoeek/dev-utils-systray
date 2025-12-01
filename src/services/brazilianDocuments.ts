@@ -37,8 +37,8 @@ const calculateCnpjVerifier = (digits: number[]): number => {
 };
 
 export const generateCnpj = (): string => {
-    const base = randomDigits(8);
-    const branch = [0, 0, 0, 1]; 
+    const base = randomDigits(8); // Company part
+    const branch = [0, 0, 0, 1]; // Branch part
     const fullBase = [...base, ...branch];
     const d1 = calculateCnpjVerifier(fullBase);
     const d2 = calculateCnpjVerifier([...fullBase, d1]);
@@ -51,6 +51,7 @@ export const formatCnpj = (cnpj: string): string => {
 };
 
 // --- RG ---
+// RG generation is state-specific and complex. This is a generic 9-digit generator.
 export const generateRg = (): string => randomDigits(9).join('');
 export const formatRg = (rg: string): string => {
     if (!rg || rg.length !== 9) return rg;
@@ -86,7 +87,7 @@ export const formatPisPasep = (pis: string): string => {
 };
 
 
-// --- IE
+// --- IE (Inscrição Estadual) - Full version ---
 export const brazilianStates = [
     'AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'DF', 'ES', 'GO', 
     'MA', 'MT', 'MS', 'MG', 'PA', 'PB', 'PR', 'PE', 'PI', 
@@ -96,10 +97,10 @@ export type BrazilianState = typeof brazilianStates[number];
 
 const ieRules: Record<BrazilianState, { weights: number[], digits: number }> = {
     AC: { weights: [4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2], digits: 11 },
-    AL: { weights: [4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2], digits: 8 }, 
+    AL: { weights: [4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2], digits: 8 }, // AL has specific business type logic, simplified here
     AP: { weights: [9, 8, 7, 6, 5, 4, 3, 2], digits: 8 },
     AM: { weights: [9, 8, 7, 6, 5, 4, 3, 2], digits: 8 },
-    BA: { weights: [7, 6, 5, 4, 3, 2], digits: 7 }, 
+    BA: { weights: [7, 6, 5, 4, 3, 2], digits: 7 }, // BA has two verifiers
     CE: { weights: [9, 8, 7, 6, 5, 4, 3, 2], digits: 8 },
     DF: { weights: [4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2], digits: 11 },
     ES: { weights: [9, 8, 7, 6, 5, 4, 3, 2], digits: 8 },
@@ -107,27 +108,28 @@ const ieRules: Record<BrazilianState, { weights: number[], digits: number }> = {
     MA: { weights: [9, 8, 7, 6, 5, 4, 3, 2], digits: 8 },
     MT: { weights: [3, 2, 9, 8, 7, 6, 5, 4, 3, 2], digits: 10 },
     MS: { weights: [9, 8, 7, 6, 5, 4, 3, 2], digits: 8 },
-    MG: { weights: [2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1], digits: 8 },
+    MG: { weights: [2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1], digits: 8 }, // MG is complex
     PA: { weights: [9, 8, 7, 6, 5, 4, 3, 2], digits: 8 },
     PB: { weights: [9, 8, 7, 6, 5, 4, 3, 2], digits: 8 },
-    PR: { weights: [4, 3, 2, 7, 6, 5, 4, 3, 2], digits: 8 }, 
-    PE: { weights: [8, 7, 6, 5, 4, 3, 2], digits: 7 }, 
+    PR: { weights: [4, 3, 2, 7, 6, 5, 4, 3, 2], digits: 8 }, // Two verifiers
+    PE: { weights: [8, 7, 6, 5, 4, 3, 2], digits: 7 }, // Two verifiers
     PI: { weights: [9, 8, 7, 6, 5, 4, 3, 2], digits: 8 },
     RJ: { weights: [2, 7, 6, 5, 4, 3, 2], digits: 7 },
-    RN: { weights: [10, 9, 8, 7, 6, 5, 4, 3, 2], digits: 8 }, 
+    RN: { weights: [10, 9, 8, 7, 6, 5, 4, 3, 2], digits: 8 }, // Can be 9 or 10 digits
     RS: { weights: [2, 9, 8, 7, 6, 5, 4, 3, 2], digits: 9 },
-    RO: { weights: [6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2], digits: 8 }, 
+    RO: { weights: [6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2], digits: 8 }, // Simplified
     RR: { weights: [1, 2, 3, 4, 5, 6, 7, 8], digits: 8 },
     SC: { weights: [9, 8, 7, 6, 5, 4, 3, 2], digits: 8 },
-    SP: { weights: [1, 3, 4, 5, 6, 7, 8, 10], digits: 8 }, 
+    SP: { weights: [1, 3, 4, 5, 6, 7, 8, 10], digits: 8 }, // Two verifiers
     SE: { weights: [9, 8, 7, 6, 5, 4, 3, 2], digits: 8 },
-    TO: { weights: [9, 8, 7, 6, 5, 4, 3, 2], digits: 8 }, 
+    TO: { weights: [9, 8, 7, 6, 5, 4, 3, 2], digits: 8 }, // Simplified
 };
 
 export const generateIE = (uf: BrazilianState): string => {
     const rule = ieRules[uf];
     const base = randomDigits(rule.digits);
     
+    // Most states start with a specific sequence
     const prefixes: Partial<Record<BrazilianState, number[]>> = {
         AC: [0, 1], GO: [1, 0], MS: [2, 8], PA: [1, 5],
         RN: [2, 0], RO: [1,0,0], TO: [2,9] 
@@ -137,6 +139,7 @@ export const generateIE = (uf: BrazilianState): string => {
     }
     
     let fullBase = [...base];
+    // Special cases with more complex logic
     switch(uf) {
         case 'BA': {
             const weights1 = [8, 7, 6, 5, 4, 3, 2];

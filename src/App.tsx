@@ -3,6 +3,10 @@ import GeneratorCard from './components/GeneratorCard';
 import IEGeneratorCard from './components/IEGeneratorCard';
 import ImageToBase64Converter from './components/ImageToBase64Converter';
 import PdfToBase64Converter from './components/PdfToBase64Converter';
+import CepFinder from './components/CepFinder';
+import JsonFormatter from './components/JsonFormatter';
+import Base64ToImageConverter from './components/Base64ToImageConverter';
+import LoremIpsumGenerator from './components/LoremIpsumGenerator';
 import { GithubIcon } from './components/Icons';
 import {
   generateCpf, formatCpf,
@@ -22,18 +26,22 @@ const App: React.FC = () => {
         </header>
 
         <main className="space-y-4">
+          <CepFinder />
           <GeneratorCard title="CPF" generateFunction={generateCpf} formatFunction={formatCpf} />
           <GeneratorCard title="CNPJ" generateFunction={generateCnpj} formatFunction={formatCnpj} />
           <IEGeneratorCard />
           <GeneratorCard title="RG" generateFunction={generateRg} formatFunction={formatRg} />
           <GeneratorCard title="RENAVAM" generateFunction={generateRenavam} formatFunction={formatRenavam} />
           <GeneratorCard title="PIS/PASEP" generateFunction={generatePisPasep} formatFunction={formatPisPasep} />
+          <LoremIpsumGenerator />
+          <JsonFormatter />
           <ImageToBase64Converter />
+          <Base64ToImageConverter />
           <PdfToBase64Converter />
         </main>
 
         <footer className="text-center mt-8 text-slate-500">
-          <p>Feito com ❤️ por um dev para devs.</p>
+          <p>De dev para devs.</p>
           <a
             href="https://github.com/leoeek/dev-utils-systray"
             target="_blank"

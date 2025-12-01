@@ -1,6 +1,6 @@
 {
   "name": "dev-utils-systray",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Utilitários para desenvolvedores.",
   "main": "dist-electron/main.js",
   "type": "module",
@@ -65,7 +65,7 @@
         "dir",
         "flatpak"
       ],
-      "category": "Utility"
+      "category": "Development"
     }
   }
 }
